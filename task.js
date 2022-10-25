@@ -49,34 +49,38 @@ class Magazine extends PrintEditionItem {
 // 6. Создайте класс `Book`
 
 class Book extends PrintEditionItem {
-	constructor(name, releaseDate, pagesCount) {
+	constructor(author, name, releaseDate, pagesCount) {
 		super(name, releaseDate, pagesCount);
-		this.author = "author";
+
+		this.author = author;
 		this.type = 'book';
 	}
 }
 // 7. Создайте классы `NovelBook`, `FantasticBook` и `DetectiveBook`
 
 class NovelBook extends Book {
-	constructor(name, releaseDate, pagesCount) {
-		super(name, releaseDate, pagesCount);
+	constructor(name, author, releaseDate, pagesCount) {
+		super(name, author, releaseDate, pagesCount);
+
 		this.type = 'novel';
 	}
 }
 
 class FantasticBook extends Book {
-	constructor(name, releaseDate, pagesCount) {
-		super(name, releaseDate, pagesCount);
+	constructor(name, author, releaseDate, pagesCount) {
+		super(name, author, releaseDate, pagesCount);
+
 		this.type = 'fantastic';
 	}
 }
 
 class DetectiveBook extends Book {
-	constructor(name, releaseDate, pagesCount) {
-		super(name, releaseDate, pagesCount);
+	constructor(name, author, releaseDate, pagesCount) {
+		super(name, author, releaseDate, pagesCount);
 		this.type = 'detective';
 	}
 }
+
 
 // Задача 2
 
@@ -140,16 +144,3 @@ const uells = new NovelBook("Герберт Уэллс", 1895, 138)
 library.addBook(uells);
 library.addBook(new Magazine("Мурзилка", 1924, 60));
 uells.state = 30;
-// Выдайте любую книгу
-console.log(library.findBookBy("releaseDate", 1919));
-console.log(library);
-// Испортите выданную книгу
-library.findBookBy("releaseDate", 1919)._state = 1;
-
-
-
-/*
-;
-Почините выданную книгу;
-Попытайтесь добавить починенную книгу обратно в библиотеку.
-*/
